@@ -1,0 +1,26 @@
+{
+  "model": "ResNet18 fine-tune on TrashNet",
+  "dataset": "ZeroWaste-f",
+  "split": "val",
+  "seed": 42,
+  "labels_evaluated": [
+    "cardboard",
+    "metal",
+    "plastic"
+  ],
+  "excluded_ZW_labels": "none: soft/rigid plastic mapped to plastic",
+  "count": 75,
+  "missing_or_unreadable": 0,
+  "per_class_gt": {
+    "plastic": 25,
+    "cardboard": 25,
+    "metal": 25
+  },
+  "top1_accuracy": 0.28,
+  "macro_f1_three_labels": 0.34366925064599485,
+  "accuracy_95pct_exact_CI": [
+    0.18240542148884473,
+    0.39563042179772595
+  ],
+  "note": "External-domain CLASSIFICATION of GT bounding-box crops only. Not detector mAP, not video throughput, not representative of all ZeroWaste frames."
+}
