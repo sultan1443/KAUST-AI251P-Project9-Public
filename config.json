@@ -1,0 +1,12 @@
+{
+  "seed": 42,
+  "image_size": 160,
+  "batch_size": 16,
+  "epochs": {
+    "scratch": 6,
+    "frozen": 4,
+    "finetune": 4
+  },
+  "device": "cpu",
+  "wandb_mode": "offline"
+}

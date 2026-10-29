@@ -1,0 +1,4 @@
+removed_path,kept_path,removed_label,kept_label
+/content/KAUST_TrashNet_Extracted/dataset-resized/metal/metal91.jpg,/content/KAUST_TrashNet_Extracted/dataset-resized/glass/glass115.jpg,metal,glass
+/content/KAUST_TrashNet_Extracted/dataset-resized/plastic/plastic152.jpg,/content/KAUST_TrashNet_Extracted/dataset-resized/glass/glass176.jpg,plastic,glass
+/content/KAUST_TrashNet_Extracted/dataset-resized/plastic/plastic332.jpg,/content/KAUST_TrashNet_Extracted/dataset-resized/glass/glass389.jpg,plastic,glass

@@ -1,0 +1,22 @@
+# Private credentials and local files
+.env
+.env.*
+*.key
+credentials.json
+secrets.json
+wandb/
+# Data, images, and dataset downloads (respect dataset licenses)
+data/
+datasets/
+TrashNet/
+ZeroWaste/
+*.zip
+# Model checkpoints and local experiment outputs
+*.pt
+*.pth
+*.onnx
+outputs/
+results/
+checkpoints/
+__pycache__/
+.ipynb_checkpoints/
