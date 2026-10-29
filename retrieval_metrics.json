@@ -1,0 +1,48 @@
+{
+  "advanced_component": "Embedding-based waste image retrieval",
+  "checkpoint_source": "ImageNet_ResNet18",
+  "input_size": [
+    160,
+    160
+  ],
+  "data": "TrashNet; original leak-safe recorded split",
+  "gallery_split": "train",
+  "gallery_size": 1509,
+  "query_split": "test",
+  "query_size": 507,
+  "embedding_dimensions": 512,
+  "similarity": "L2-normalized cosine similarity; no score threshold",
+  "metrics": {
+    "precision_at_1": 0.8047337278106509,
+    "precision_at_5": 0.7372781065088757,
+    "hit_at_5": 0.9566074950690335,
+    "ap_at_10": 0.6194807614038385,
+    "rr_at_10": 0.8737602141448295
+  },
+  "bootstrap_query_ci95": {
+    "precision_at_1": {
+      "low": 0.7652859960552268,
+      "high": 0.8362919132149902
+    },
+    "precision_at_5": {
+      "low": 0.7088658777120316,
+      "high": 0.7629289940828402
+    },
+    "hit_at_5": {
+      "low": 0.9368836291913215,
+      "high": 0.9723865877712031
+    },
+    "ap_at_10": {
+      "low": 0.5881246047399893,
+      "high": 0.6478349965561504
+    },
+    "rr_at_10": {
+      "low": 0.8480884873673334,
+      "high": 0.8945374870855638
+    }
+  },
+  "expected_random_p_at_1": 0.18593240033827282,
+  "expected_random_hit_at_5": 0.6330718827975022,
+  "seed": 42,
+  "limitations": "Same-dataset image retrieval; not cross-domain conveyor validation; instructor approval for fifth-member work is separate."
+}
