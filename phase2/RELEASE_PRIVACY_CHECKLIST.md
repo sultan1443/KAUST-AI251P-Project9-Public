@@ -15,9 +15,9 @@
 - [ ] Verify `README` lists exact files present in repository, not just references to absent Drive artifacts.
 - [ ] Obtain explicit review of Phase 2 claims, actual contributions, and submission content from all team members before opening the final course submission.
 
-## Status on creation
+## Current review-branch status
 
 - Main branch was inspected and its README identifies **Phase 1**, not a complete Phase 2 release.
-- The available `Project9_Phase2_CORRECTED_v3.ipynb` is an **older historical notebook** with executed outputs, a hard-coded archive extraction password, and stale M5/Test status. It is **excluded** from this initial public review branch pending cleansing and updating.
+- The **original** `Project9_Phase2_CORRECTED_v3.ipynb` contained executed outputs, a hard-coded archive password and stale M5/Test status. **It has not been published unchanged.** A sanitised, 52-cell **archival** derivative is now present under `archive/` with outputs removed, embedded password redacted and training/Test cells disabled. This is a source snapshot, not the final executable notebook.
 - The 15-page short report and 35-page complete report are **not** uploaded here. The complete report has team IDs and should be submitted privately through Blackboard/Overleaf source as instructed.
-- This branch intentionally contains publication notes and evidence mapping only, not trained source/checkpoints or a fully runnable system.
+- This branch contains publication notes, evidence mapping, a sanitized historical notebook and an extracted archival HTTP service. It does **not** contain trained model checkpoints, the later validated manifest-driven service or a fully reproducible system. Both source files were inspected at publication time; no model inference or full runtime reproduction was performed.
