@@ -26,10 +26,19 @@ Deployment operating confidence is **0.25**, and the AP values must not be mista
 
 The separate open-world comparison evaluated **200 balanced Test ground-truth object crops from 172 source images**, not whole-scene or unknown-class performance. On these crops, ResNet retrieval top-1 was 46.5% vs 37.5% RGB-histogram baseline; plain-prompt CLIP accuracy was 38.0% vs 37.5% baseline (its macro-F1 was lower).
 
+## Source present on this review branch (not a final release)
+
+- [Sanitized archival notebook](archive/Project9_Phase2_CORRECTED_v3_SOURCE_ONLY.ipynb): 52-cell source-only historical snapshot with outputs removed, archive password redacted and train/Test guards; it does **not** reflect all subsequent November results.
+- [Archive explanation](archive/README.md): explains the exact provenance and why the notebook must not be rerun.
+- [Historical FastAPI reference](reference_service/service.py) and [local-run instructions](reference_service/README.md): code extracted from that archived notebook; its manifest example uses reported model SHA256s. **Not** the newer manifest-driven implementation verified on 17 November, and not run against checkpoints during publication.
+- [Evidence map](PHASE2_EVIDENCE_STATUS.md) and [release safety gate](RELEASE_PRIVACY_CHECKLIST.md).
+
+No dataset ZIP, raw frames, model weights, API keys, student IDs, or final course report are published here. The current branch is **review-only**; the preserved original team artifacts and latest code/evidence have not all been transferred.
+
 ## Evidence and code required before merging
 
-1. Publish reviewed M4/M5 training/conversion scripts or notebooks **without executed outputs, embedded credentials or personal identifiers**, and identify historical vs completed runs.
-2. Publish the M8 FastAPI source, pinned compatible requirements and manifest schema; include clear instructions to provide checkpoints through private/course-approved channels.
+1. Replace or supplement the **sanitized historical M4/M5 source** with an approved, source-checked **current** execution notebook/scripts matching the completed M5 run and final release; the historical archive is not sufficient.
+2. Obtain, review and publish the **newer manifest-driven M8 FastAPI source**, its tested pinned CPU requirements, and documented private checkpoint restoration. The historical reference currently published is not that newer version.
 3. Verify exact source checksum references, frozen split manifest, training configuration, W&B links and recorded evaluation files. Publish only evidence licensed for redistribution.
 4. Include representative failure figures only after reviewing image/data licensing and privacy; original ZeroWaste frames should not be redistributed by default.
 5. Document Test-once protocol and post-hoc Validation diagnostics separately; never use frozen Test to retune thresholds.
@@ -40,4 +49,4 @@ See [PHASE2_EVIDENCE_STATUS.md](PHASE2_EVIDENCE_STATUS.md) for the evidence-to-c
 
 ## Current limitations
 
-This staging branch has **not** been independently run against the original data/checkpoints. It does not supply those files, a hosted service or the reviewed 35-page report source. The instructor's final evaluation and requested accompanying PDF/Overleaf source ZIP are separate course submission deliverables.
+This staging branch includes a syntax-checked historical service and output-free notebook, but **has not** run model inference against the original data/checkpoints. It does not supply trained model files, a hosted service, the later reviewed M8 implementation or the reviewed 35-page report source. The instructor's final evaluation and requested accompanying PDF/Overleaf source ZIP are separate course submission deliverables.
