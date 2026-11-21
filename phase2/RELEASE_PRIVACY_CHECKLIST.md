@@ -1,6 +1,8 @@
 # Phase 2 — public-source release and privacy checklist
 
-**Updated 21 November 2026** · **Targeted privacy scan recorded in [PRIVACY_REVIEW_2026-11-21.md](PRIVACY_REVIEW_2026-11-21.md).**\n\n**This branch is a review candidate. Do not mark it as a completed release or merge the PR before team and source/privacy review.**
+**Updated 21 November 2026** · **Targeted privacy scan recorded in [PRIVACY_REVIEW_2026-11-21.md](PRIVACY_REVIEW_2026-11-21.md).**
+
+**This branch is a review candidate. Do not mark it as a completed release or merge the PR before team and source/privacy review.**
 
 ## Verified by source inspection / recorded evidence
 
