@@ -1,23 +1,31 @@
-# Phase 2 public-release and privacy gate
+# Phase 2 — public-source release and privacy checklist
 
-**Do not merge or label a release before completing this checklist.**
+**Updated 21 November 2026** · **This branch is a review candidate. Do not mark it as a completed release or merge the PR before team and source/privacy review.**
 
-- [ ] Check all notebook cells, outputs and metadata for API tokens, W&B credentials, private URLs, drive paths revealing personal information, runtime authentication and embedded secrets.
-- [ ] Remove executed notebook outputs and obsolete `FINAL TEST NOT RUN`, `M5 interrupted`, or `Due 15 November` statements from any notebook promoted as the *current* execution guide. Historical notebooks may be retained only with a prominent archival warning.
-- [ ] Never publish or embed the dataset ZIP password; follow the official dataset access documentation instead. A historical local notebook contains a hard-coded archive extraction password and must not be published unchanged.
-- [ ] Keep raw ZeroWaste image archives (about 7.5 GB), whole-source frames, original annotations if redistribution is not authorized, and model `best.pt`/`last.pt` binaries outside the public repository. Document official download routes, license and hashes.
-- [ ] Keep student names/IDs, university account details, and correspondence in **private course submission**, not public repository.
-- [ ] Check figure and crop redistribution rights; use public figures only with documented permission/license, or replace them with generated diagrams, small permitted examples, or private course evidence.
-- [ ] Publish reviewed source code with stable requirements and exact startup commands; distinguish GPU training profile from CPU service profile.
-- [ ] Include frozen split manifest hash, checkpoint SHA256, evaluation settings, W&B provenance and a reproducibility test performed by a second team member (record scope honestly).
-- [ ] Validate no modified file or helper silently re-runs frozen 929-image M4/M5 Test or uses its metrics for selecting weights/prompts/thresholds.
-- [ ] Confirm any original HTTP service uses **PyTorch CPU** despite separate ONNX exports; do not call it deployed ONNX.
-- [ ] Verify `README` lists exact files present in repository, not just references to absent Drive artifacts.
-- [ ] Obtain explicit review of Phase 2 claims, actual contributions, and submission content from all team members before opening the final course submission.
+## Verified by source inspection / recorded evidence
 
-## Current review-branch status
+- [x] Sanitized Phase 2 source exists under [m4_m5_source_review/](m4_m5_source_review/) and [m8_manifest_driven/](m8_manifest_driven/) on this review branch.
+- [x] The original full 107-cell notebook was **not uploaded unchanged**; historical copies are sanitized and explicitly archived under [archive/](archive/).
+- [x] No raw ZeroWaste image archives or original model checkpoint binaries are included in the reviewed public tree.
+- [x] Course-submitted PDF with student names/IDs is kept separate from public code.
+- [x] Current README explicitly distinguishes CPU PyTorch HTTP service from separately tested ONNX exports.
+- [x] Latest [M8 follow-up](M8_FOLLOWUP_2026-11-21.md) records both successful checks and unmatched ONNX predictions rather than claiming full parity.
+- [x] README and [evidence-to-claim map](PHASE2_EVIDENCE_STATUS.md) mark measured versus unmeasured claims distinctly.
 
-- Main branch was inspected and its README identifies **Phase 1**, not a complete Phase 2 release.
-- The **original** `Project9_Phase2_CORRECTED_v3.ipynb` contained executed outputs, a hard-coded archive password and stale M5/Test status. **It has not been published unchanged.** A sanitised, 52-cell **archival** derivative is now present under `archive/` with outputs removed, embedded password redacted and training/Test cells disabled. This is a source snapshot, not the final executable notebook.
-- The 15-page short report and 35-page complete report are **not** uploaded here. The complete report has team IDs and should be submitted privately through Blackboard/Overleaf source as instructed.
-- This branch contains publication notes, evidence mapping, a sanitized historical notebook and an extracted archival HTTP service. It does **not** contain trained model checkpoints, the later validated manifest-driven service or a fully reproducible system. Both source files were inspected at publication time; no model inference or full runtime reproduction was performed.
+## Still required before a public merge / release
+
+- [ ] An authorized team member reviews **all** published notebook cells, metadata, figures and history for credentials, archive passwords, private sharing links, protected dataset content and student identifiers.
+- [ ] All five teammates verify descriptions of their actual work and explicitly approve the **private submission** and publication-safe source.
+- [ ] Validate current setup instructions in a fresh compatible environment with **authorized** weight/data access; record exact Python/PyTorch dependencies and results. Do not label a source-only syntax check as a full reproduction.
+- [ ] Confirm external data, model, library and diagram licensing/attribution and that any visual example uploaded publicly is licensed for redistribution.
+- [ ] Verify all paths and links on the eventual release branch, and ensure the privately submitted PDF points to the actual commit containing Phase 2 source.
+- [ ] Inspect the final public diff and previous Git history for secrets and personal information, not only the current files.
+- [ ] Keep Checkpoint `best_det.pt`, `best_seg.pt`, original images, private evaluation JSON and course ID records out of the public repo.
+- [ ] Preserve once-only frozen Test integrity. Do not re-run frozen Test or use it to choose thresholds.
+- [ ] Decide with the team whether to merge this PR; merge is **not** required merely to submit a review-branch URL to Blackboard.
+
+## Release boundary
+
+The Phase 2 repository is useful for **code review and audit of reported measurements**, but cannot reproduce every result from the public checkout alone: raw data and weights are absent by design, and the complete source/evidence package is privately submitted through the approved course channel.
+
+**Historical reference:** [reference_service/](reference_service/) is the earlier service and should not be described as the current M8 V2 implementation. [archive/](archive/) notebooks are archival; they are not intended for `Run all`.
