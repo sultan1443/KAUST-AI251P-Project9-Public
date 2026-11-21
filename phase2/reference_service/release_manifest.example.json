@@ -1,0 +1,30 @@
+{
+  "project": "AI251P-Project9-Phase2",
+  "class_names": [
+    "cardboard",
+    "metal",
+    "rigid_plastic",
+    "soft_plastic"
+  ],
+  "weights": {
+    "detector": {
+      "file": "best_det.pt",
+      "sha256": "90f2117bdad6b9c0cb3e8d176d056c344bc11a737f7b8871534d0e718d000fd7"
+    },
+    "segmenter": {
+      "file": "best_seg.pt",
+      "sha256": "1ceaa151c3dc3d3503d2812216309322be62d25eebfcd57e35f513036412f178"
+    }
+  },
+  "confidence": 0.25,
+  "nms_iou": 0.5,
+  "imgsz": 640,
+  "device": "cpu",
+  "backend": "PyTorch",
+  "input_format": "RGB upload; converted to BGR numpy for Ultralytics",
+  "inference": {
+    "box_mask_match_min_iou": 0.5,
+    "max_upload_mb": 12
+  },
+  "status": "archival reference; not continually hosted; industrial use not validated"
+}

@@ -1,0 +1,17 @@
+{
+  "source": "recorded M4 args.yaml (initial training)",
+  "task": "detect",
+  "base_model": "yolo11n.pt",
+  "epochs_max": 50,
+  "early_stopping_patience": 15,
+  "batch": 8,
+  "imgsz": 640,
+  "optimizer": "AdamW",
+  "lr0": 0.001,
+  "seed": 42,
+  "deterministic": true,
+  "amp": true,
+  "save_period": 5,
+  "close_mosaic": 10,
+  "resume_recorded": false
+}

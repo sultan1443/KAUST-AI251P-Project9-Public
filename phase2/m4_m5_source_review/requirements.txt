@@ -1,0 +1,7 @@
+# Recommended inspection / reproduction environment (not a certified lockfile)
+ultralytics==8.4.213
+pandas>=2.0,<3
+numpy>=1.24,<3
+Pillow>=10,<13
+PyYAML>=6,<7
+# torch/torchvision: install GPU-compatible wheels appropriate to your environment
