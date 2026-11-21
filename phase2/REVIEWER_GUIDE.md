@@ -11,6 +11,14 @@
 4. **Measured evidence:** [evidence map](PHASE2_EVIDENCE_STATUS.md) and [21 November HTTP/ONNX follow-up](M8_FOLLOWUP_2026-11-21.md).
 5. **Report/figures/private raw evidence:** provided through the course's official private submission, **not** redistributed in this public repository.
 
+## Direct W&B run navigation
+
+- [M4 detection run — `epqdtowi`](https://forge.coreweave.com/wandb/sultan--almutairi/AI251P-Waste-Phase2/runs/epqdtowi?nw=nwusersultanalmutairi) — recorded detection run; completion state not independently established by this README.
+- [M5 original run — `c6kv4slq`](https://forge.coreweave.com/wandb/sultan--almutairi/AI251P-Waste-Phase2/runs/c6kv4slq?nw=nwusersultanalmutairi) — shown as **Crashed**.
+- [M5 resumed run — `pkty4rqs`](https://forge.coreweave.com/wandb/sultan--almutairi/AI251P-Waste-Phase2/runs/pkty4rqs?nw=nwusersultanalmutairi) — shown as **Finished**.
+
+These are recorded training-run references; M5 initial **Crashed** and resumed **Finished**. They do not themselves verify Test metrics. The team also supplied a private evidence ZIP documenting validation and service checks; the protected dataset and checkpoints are not public.
+
 ## How to reproduce a bounded M8 demo
 
 **Prerequisites:** Authorized access to exactly the detector `best_det.pt` and segmenter `best_seg.pt` from the team's *private* Drive/release, a compatible Python/PyTorch environment and an authorized non-Test demonstration image.
@@ -40,6 +48,8 @@ curl -F "file=@/absolute/path/to/authorized_validation_image.jpg" http://127.0.0
 
 Expected behavior: `/health` returns `status=ok` and `model_verified=true`; `/predict` returns dimensions, detected material/score/box, optional associated polygon/centroid, a review flag and material counts. Outputs depend on the uploaded image; **no fixed count is guaranteed**. The service is **PyTorch CPU**, not ONNX.
 
+**Recorded fresh-notebook smoke evidence (22 Nov):** One team member cloned GitHub at `08f4bc0107cf5f9122508c29e95e607f6a1156d1`, verified both original private weight hashes, and observed HTTP **200** `/health`, **200** `/predict` (3 detected objects, 2 masks) and **400** for invalid input on one saved Validation replay image. The private submission contains its JSON evidence. A dependency auto-update warning was observed; this was **not** a pinned clean-room rebuild, independent model training reproduction, or hosted deployment.
+
 **Limitations:** This GitHub source alone lacks authorized image data and weights; a successful clean-room reinstall and full training reproduction are **not verified**. Hardware/package behavior may vary. The unauthenticated service is for localhost only.
 
 ## Results and scope: do not confuse these
@@ -49,6 +59,9 @@ Expected behavior: `/health` returns `status=ok` and `model_verified=true`; `/pr
 | M4/M5 frozen Test AP | 929 held-out ZeroWaste-f images, once-only evaluation | AP at confidence floor 0.001; **not** service-point P/R/F1 |
 | M4 threshold, size recall, confusion | Validation, 451 images, varying recorded settings | Selection/diagnostic evidence, **not** Test performance |
 | M5 mean IoU/Dice | 24 deliberately selected Validation images | 117 GT objects; **not** full-Test mask quality |
+| M5 separate full-GT mask audit | 451 Validation images | Mean IoU **0.4078**, mean Dice **0.4398**, with separate class-aware 512×512 raster protocol; **not** Test IoU/Dice |
+| M4 manual failure review | Four purposely chosen Validation frames | 5 TP / 9 FP / 13 FN for these four only; tentative visual factors, not population rates |
+| M5 visual review | Three Validation batch montages | Qualitative GT-versus-prediction observations; **not** counted or corrected individual masks |
 | Local API smoke | One Validation diagnostic image | Technical function only |
 | 21 Nov HTTP benchmark | One repeated Validation image ×25 requests | Bounded latency and throughput, **not** all-input or line-rate proof |
 | 21 Nov ONNX parity | One diagnostic image; matched boxes only | Cross-backend agreement, **not** ground-truth accuracy |
