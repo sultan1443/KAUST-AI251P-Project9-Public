@@ -1,6 +1,6 @@
 # Phase 2 — public-source release and privacy checklist
 
-**Updated 21 November 2026** · **This branch is a review candidate. Do not mark it as a completed release or merge the PR before team and source/privacy review.**
+**Updated 21 November 2026** · **Targeted privacy scan recorded in [PRIVACY_REVIEW_2026-11-21.md](PRIVACY_REVIEW_2026-11-21.md).**\n\n**This branch is a review candidate. Do not mark it as a completed release or merge the PR before team and source/privacy review.**
 
 ## Verified by source inspection / recorded evidence
 
@@ -14,8 +14,8 @@
 
 ## Still required before a public merge / release
 
-- [ ] An authorized team member reviews **all** published notebook cells, metadata, figures and history for credentials, archive passwords, private sharing links, protected dataset content and student identifiers.
-- [ ] All five teammates verify descriptions of their actual work and explicitly approve the **private submission** and publication-safe source.
+- [ ] An authorized team member performs the **final manual review** of all notebook cells, metadata, figures and full historical Git objects for credentials, archive passwords, private sharing links, protected dataset content and student identifiers. A **targeted pattern scan plus sampled history review** found no confirmed live secret; see the linked privacy review note.
+- [x] Team representative stated that all five teammates agree to the project contribution descriptions and public-source sharing (21 Nov 2026). This is a representative confirmation, **not separately obtained signed authorization**.
 - [ ] Validate current setup instructions in a fresh compatible environment with **authorized** weight/data access; record exact Python/PyTorch dependencies and results. Do not label a source-only syntax check as a full reproduction.
 - [ ] Confirm external data, model, library and diagram licensing/attribution and that any visual example uploaded publicly is licensed for redistribution.
 - [ ] Verify all paths and links on the eventual release branch, and ensure the privately submitted PDF points to the actual commit containing Phase 2 source.
