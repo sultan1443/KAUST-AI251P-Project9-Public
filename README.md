@@ -1,27 +1,48 @@
-# AI251P Applied Computer Vision — Project 9 (Phase 1)
+# AI251P Applied Computer Vision — Project 9
 
-**Topic:** Waste Recognition and Segmentation on Conveyor Belts  
-**Team:** Five students; student names and IDs are recorded in the course-submitted PDF, not in this public source repository.  
-**Phase 1 scope:** TrashNet data foundations and material classification (M1–M3). Detection and instance segmentation are later-phase work.
+**Waste Recognition and Instance Segmentation on Conveyor Belts**  
+KAUST AI251P capstone | Five-member team | Academic research prototype
 
-## Contents
+## Start here
 
-- `Training_Notebook.ipynb`: Phase 1 TrashNet preprocessing and three classification model configurations (CNN from scratch, frozen ResNet18, fully fine-tuned ResNet18).
-- `config.json`, `requirements.txt`: experiment settings and package versions.
-- `class_counts.csv`, `exact_duplicates_removed.csv`: retained class splits and recorded identical-file removals.
-- `dataset_card_with_audit_addendum.md`: provenance, splits, audit, and limitations.
-- `label_audit_review_completed.csv`: **one team member's** review of 60 sampled image previews; 55 marked correct, 5 flagged for further checking. These flags are not verified ground-truth relabels.
-- `WAND_B_RUNS_AND_PROVENANCE.md`: links to logged experiment histories, retrospectively uploaded from original CSV history files.
-- `Create_ZeroWaste_Crops_From_COCO.py`, `Evaluate_ZeroWaste_Annotated_Crops.ipynb`: earlier external-domain helper scripts.
-- `KAUST_Project9_Advanced_Image_Retrieval.ipynb`, `ADVANCED_RETRIEVAL_RESULTS.md`: executed ImageNet-pretrained ResNet18 retrieval extension; Precision@1 = 80.47% on 507 held-out TrashNet queries (not a conveyor test).
-- `KAUST_ZeroWaste_External_Test_Colab.ipynb`, `ZEROWASTE_EXTERNAL_VALIDATION.md`, `zerowaste_predictions.csv`, `zerowaste_evaluation_metrics.json`, `classification_report.json`: **completed limited ZeroWaste-f validation-crop classification test** (75 annotated GT crops; 28.00% top-1, 34.37% macro-F1 for three mapped labels). No raw ZeroWaste images are redistributed.
+| Phase | Scope | Where to look |
+| --- | --- | --- |
+| **Phase 2 (M4, M5, M8 + two extensions)** | Object detection, instance segmentation, HTTP pipeline, evaluation and operator-assistance experiments | **[Phase 2 overview](phase2/README.md)** |
+| Phase 1 (M1–M3) | TrashNet classification and data foundations | [Phase 1 source](Training_Notebook.ipynb) and [dataset card](dataset_card_with_audit_addendum.md) |
 
-## Reproduce and limitations
+**Reviewing the Phase 2 submission?** Read the [two-minute reviewer guide](phase2/REVIEWER_GUIDE.md), then [source and evidence map](phase2/PHASE2_EVIDENCE_STATUS.md).
 
-Open `Training_Notebook.ipynb` in Google Colab and follow its data-acquisition instructions. Training data and trained checkpoints are **not included**; dataset redistribution is subject to the source's license. Run settings are in `config.json` and `requirements.txt`; reproducibility requires executing the notebook on the real dataset. The originally saved runs are described in the W&B provenance note. 
+### Phase 2 — recorded results
 
-**Recorded outcome:** selected fine-tuned ResNet18 achieved 90.14% accuracy on the held-out TrashNet test set (507 images). This TrashNet result is **not** a conveyor-belt ZeroWaste accuracy measurement. A *separate* small ZeroWaste-f annotated object crop test yielded 28.00% top-1 accuracy (21/75; 25 distinct source frames from each of cardboard, metal and plastic). It measures classification from **ground-truth crops**, not detection, segmentation or full industrial throughput. Independently rerunning the full original training and verifying flagged labels on original-resolution images remain outstanding.
+The original **frozen ZeroWaste-f Test split contains 929 images**. The measurements below are from that recorded test, not new GitHub executions:
 
-## Access for course assessment
+| Metric | Recorded result |
+| --- | ---: |
+| M4 box mAP50 | 0.348695 |
+| M4 box mAP50–95 | 0.228974 |
+| M5 mask mAP50 | 0.340408 |
+| M5 mask mAP50–95 | 0.210736 |
 
-The instructor needs access to this code repository, the W&B runs, and the dataset card. W&B project visibility was tested in a signed-out browser (public project overview; three retrospective runs). For privacy, full names, student IDs, private tokens, original image data, and model checkpoints are excluded from this public repository; the full team is identified in the privately submitted course PDF.
+The pipeline uses YOLO11n detection + YOLO11n-seg masks, matches same-class boxes and returns labels, bounding boxes, associated mask polygons, candidate pixel centroids and review flags. A local FastAPI service runs **PyTorch on CPU**. Exported ONNX models were tested separately; the HTTP service does **not** serve ONNX.
+
+**[21 November M8 follow-up checks](phase2/M8_FOLLOWUP_2026-11-21.md):** 25/25 HTTP responses succeeded for one repeated Validation image, p95 latency 643.95 ms, sampled process RSS 864.90 MiB; a separate ONNX comparison shows high geometric agreement *only on matched objects*, with unmatched predictions disclosed.
+
+### Scope and integrity
+
+- This public branch contains reviewed/sanitized code and selected metadata. It is **not a self-contained reproduction of every experiment**.
+- Original ZeroWaste-f imagery, protected archives, private model checkpoints, student IDs, credentials and the course-submitted PDF are **not published** here.
+- Do **not** rerun the original once-only Test evaluation for model selection. Validation and Test evidence are distinguished in the report and evidence map.
+- The demo is a local research prototype; **no industrial conveyor-rate, autonomous grasping or production deployment** is claimed.
+- The academic report, full private evidence bundle and model weights are submitted/shared only through the approved course channel.
+
+## Phase 1 historical materials
+
+- [Training notebook](Training_Notebook.ipynb) — original three TrashNet classification configurations.
+- [Dataset card and audit](dataset_card_with_audit_addendum.md), [Phase 1 run provenance](WAND_B_RUNS_AND_PROVENANCE.md).
+- [Earlier retrieval work](KAUST_Project9_Advanced_Image_Retrieval.ipynb), [ZeroWaste crop classification audit](ZEROWASTE_EXTERNAL_VALIDATION.md).
+
+The Phase 1 reported TrashNet fine-tuned ResNet18 result (90.14% accuracy on 507 test images) is **not** a conveyor-image detection score. A distinct ZeroWaste-f ground-truth crop classification check reported 21/75 correct; it is neither a Phase 2 M4 nor M5 result.
+
+### Dataset attribution
+
+ZeroWaste-f: Bashkirova et al., *ZeroWaste Dataset: Towards Deformable Object Segmentation in Cluttered Scenes* (CVPR 2022). [Official dataset](https://ai.bu.edu/zerowaste/) | [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Obtain data through authorized original sources; this repository does not redistribute it.

@@ -1,0 +1,43 @@
+{
+  "manifest_sha256": "ef6b35d2ba7f6708319b824e29707b4d2001750974ac3c4da03c72c9340fdb50",
+  "class_names": [
+    "cardboard",
+    "metal",
+    "rigid_plastic",
+    "soft_plastic"
+  ],
+  "stats": {
+    "train": {
+      "images": 1851,
+      "boxes": 12112,
+      "clipped": 61,
+      "background": 13,
+      "cardboard": 8208,
+      "metal": 130,
+      "rigid_plastic": 839,
+      "soft_plastic": 2935
+    },
+    "val": {
+      "images": 451,
+      "boxes": 2242,
+      "clipped": 11,
+      "background": 8,
+      "cardboard": 1442,
+      "metal": 34,
+      "rigid_plastic": 144,
+      "soft_plastic": 622
+    },
+    "test": {
+      "images": 929,
+      "boxes": 5077,
+      "clipped": 17,
+      "background": 30,
+      "cardboard": 3449,
+      "metal": 63,
+      "rigid_plastic": 315,
+      "soft_plastic": 1250
+    }
+  },
+  "image_method": "hardlink or copy",
+  "source_dataset": "ZeroWaste-f"
+}

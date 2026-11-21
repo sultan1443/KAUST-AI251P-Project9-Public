@@ -1,0 +1,18 @@
+{
+  "source": "recorded M5 args.yaml (resumed run)",
+  "task": "segment",
+  "initial_base_model_from_notebook": "yolo11n-seg.pt",
+  "epochs_max": 50,
+  "early_stopping_patience": 15,
+  "batch": 8,
+  "imgsz": 640,
+  "optimizer": "AdamW",
+  "lr0": 0.001,
+  "seed": 42,
+  "deterministic": true,
+  "amp": true,
+  "save_period": 5,
+  "close_mosaic": 10,
+  "resume_recorded": true,
+  "resume_provenance": "the actual args.yaml references last.pt; path deliberately omitted"
+}
