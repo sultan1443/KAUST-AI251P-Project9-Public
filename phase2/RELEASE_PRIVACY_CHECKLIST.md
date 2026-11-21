@@ -18,7 +18,7 @@
 
 - [ ] An authorized team member performs the **final manual review** of all notebook cells, metadata, figures and full historical Git objects for credentials, archive passwords, private sharing links, protected dataset content and student identifiers. A **targeted pattern scan plus sampled history review** found no confirmed live secret; see the linked privacy review note.
 - [x] Team representative stated that all five teammates agree to the project contribution descriptions and public-source sharing (21 Nov 2026). This is a representative confirmation, **not separately obtained signed authorization**.
-- [ ] Validate current setup instructions in a fresh compatible environment with **authorized** weight/data access; record exact Python/PyTorch dependencies and results. Do not label a source-only syntax check as a full reproduction.
+- [ ] Validate the pinned requirements in a genuinely clean compatible environment with **authorized** weight/data access. A team member did complete a **bounded fresh-Colab-notebook M8 smoke test** (GitHub code, verified exact private weights, HTTP 200/200/400) on 22 Nov; a runtime dependency auto-update warning remained. This is not independent end-to-end training reproduction.
 - [ ] Confirm external data, model, library and diagram licensing/attribution and that any visual example uploaded publicly is licensed for redistribution.
 - [ ] Verify all paths and links on the eventual release branch, and ensure the privately submitted PDF points to the actual commit containing Phase 2 source.
 - [ ] Inspect the final public diff and previous Git history for secrets and personal information, not only the current files.
