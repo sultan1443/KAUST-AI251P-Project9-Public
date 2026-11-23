@@ -4,6 +4,17 @@
 **Team:** Five students; student names and IDs are recorded in the course-submitted PDF, not in this public source repository.  
 **Phase 1 scope:** TrashNet data foundations and material classification (M1–M3). Detection and instance segmentation are later-phase work.
 
+## 🔎 Phase 2 — Final capstone source review (M4, M5, M8 + two extensions)
+
+**Looking for the Phase 2 submission?** The Phase 2 source is on the separate public review branch (not yet merged into `main`):
+
+- **[Open the Phase 2 review branch](https://github.com/sultan1443/KAUST-AI251P-Project9-Public/tree/phase2-review-2026-11-17)**
+- **[Phase 2 project overview](https://github.com/sultan1443/KAUST-AI251P-Project9-Public/blob/phase2-review-2026-11-17/phase2/README.md)** — detection, segmentation, HTTP service and two extensions
+- **[Phase 2 reviewer guide](https://github.com/sultan1443/KAUST-AI251P-Project9-Public/blob/phase2-review-2026-11-17/phase2/REVIEWER_GUIDE.md)** — code map and evidence links
+- **[Phase 2 evidence-to-claim map](https://github.com/sultan1443/KAUST-AI251P-Project9-Public/blob/phase2-review-2026-11-17/phase2/PHASE2_EVIDENCE_STATUS.md)**
+
+This `main` branch retains the Phase 1 TrashNet classification materials below. The Phase 2 review branch provides sanitized source and recorded evidence; the course PDF, private weights and protected dataset are not publicly posted. The review PR remains a draft pending privacy and licensing checks.
+
 ## Contents
 
 - `Training_Notebook.ipynb`: Phase 1 TrashNet preprocessing and three classification model configurations (CNN from scratch, frozen ResNet18, fully fine-tuned ResNet18).
